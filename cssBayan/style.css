@@ -49,17 +49,21 @@ h1 {
   align-items: center;
 }
 
+.meme input:not(:checked) ~ .meme__label {
+  color: blue;
+}
+
 .meme__label .state-icon {
+  display: none;
   font-size: 1.8rem;
-  color: #acacac;
-  transition: 0.4s;
+  transition: transform 0.4s;
 }
 
 .meme__content {
   display: block;
   overflow: hidden;
   max-height: 0;
-  transition: 0.4s;
+  transition: max-height 0.4s;
 }
 
 .meme input {
@@ -75,4 +79,16 @@ h1 {
 .meme:hover .state-icon,
 .meme input:checked ~ .meme__label .state-icon {
   transform: rotate(135deg);
+}
+
+@media (hover: hover) {
+  .accordion:hover .state-icon {
+    display: block;
+  }
+  .accordion:hover .meme__label {
+    color: black !important;
+  }
+  .meme:active .meme__label {
+    color: blue !important;
+  }
 }
