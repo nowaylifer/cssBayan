@@ -24,7 +24,8 @@ h1 {
 }
 
 .meme img {
-  max-width: 100%;
+  max-width: 80%;
+  padding-top: 1rem;
 }
 
 .accordion {
@@ -60,10 +61,12 @@ h1 {
 }
 
 .meme__content {
-  display: block;
-  overflow: hidden;
+  display: flex;
   max-height: 0;
-  transition: max-height 0.4s;
+  transform: scale(0);
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.6s;
 }
 
 .meme input {
@@ -73,7 +76,7 @@ h1 {
 .meme:hover .meme__content,
 .meme input:checked ~ .meme__content {
   max-height: 100vh;
-  padding: 1rem;
+  transform: scale(1);
 }
 
 .meme:hover .state-icon,
@@ -82,6 +85,9 @@ h1 {
 }
 
 @media (hover: hover) {
+  .accordion * {
+    cursor: pointer;
+  }
   .accordion:hover .state-icon {
     display: block;
   }
@@ -91,4 +97,8 @@ h1 {
   .meme:active .meme__label {
     color: blue !important;
   }
+}
+
+.meme:active {
+  opacity: 0.8;
 }
