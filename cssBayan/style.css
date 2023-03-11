@@ -20,23 +20,24 @@ body {
 
 h1 {
   border-bottom: 1px solid var(--grey);
-  margin-bottom: 1rem;
   padding: 1rem;
 }
 
-img {
+.meme img {
   max-width: 100%;
 }
 
 .accordion {
-  max-width: 600px;
   padding: 0 0.5rem;
   background-color: var(--background);
 }
 
+.meme {
+  padding: 1rem 0;
+}
+
 .meme:not(:last-of-type) {
   border-bottom: 1px solid var(--grey);
-  margin-bottom: 1rem;
 }
 
 .meme__label {
@@ -48,15 +49,30 @@ img {
   align-items: center;
 }
 
-.meme__label span {
+.meme__label .state-icon {
   font-size: 1.8rem;
   color: #acacac;
+  transition: 0.4s;
 }
 
 .meme__content {
-  padding: 1rem 2rem;
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.4s;
 }
 
 .meme input {
   display: none;
+}
+
+.meme:hover .meme__content,
+.meme input:checked ~ .meme__content {
+  max-height: 100vh;
+  padding: 1rem;
+}
+
+.meme:hover .state-icon,
+.meme input:checked ~ .meme__label .state-icon {
+  transform: rotate(135deg);
 }
