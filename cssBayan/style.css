@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --background: #f5f5eb;
+  --grey: #acacac;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fbf9f9;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  border-bottom: 1px solid var(--grey);
+  padding: 1rem;
+}
+
+.meme img {
+  padding-top: 1rem;
+  max-width: 100%;
+}
+
+.accordion {
+  padding: 0 0.5rem;
+  background-color: var(--background);
+  max-width: 30rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid rgb(216, 216, 216);
+}
+
+.meme {
+  padding: 1rem 0;
+}
+
+.meme:not(:last-of-type) {
+  border-bottom: 1px solid var(--grey);
+}
+
+.meme__label {
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  padding: 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meme input:not(:checked) ~ .meme__label {
+  color: blue;
+}
+
+.meme__label .state-icon {
+  display: none;
+  line-height: 0%;
+  font-size: 1.8rem;
+  transition: transform 0.4s;
+}
+
+.meme__content {
+  padding: 0 1rem;
+  display: flex;
+  max-height: 0;
+  transform: scale(0);
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.6s;
+}
+
+.meme input {
+  display: none;
+}
+
+.meme:hover .meme__content,
+.meme input:checked ~ .meme__content {
+  max-height: 100vh;
+  transform: scale(1);
+}
+
+.meme:hover .state-icon,
+.meme input:checked ~ .meme__label .state-icon {
+  transform: rotate(135deg);
+}
+
+@media (hover: hover) {
+  .accordion * {
+    cursor: pointer;
+  }
+  .accordion:hover .state-icon {
+    display: block;
+  }
+  .accordion:hover .meme__label {
+    color: black !important;
+  }
+  .meme:active .meme__label {
+    color: blue !important;
+  }
+}
+
+.meme:active {
+  opacity: 0.8;
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 1.1em;
+  }
+  .meme__content {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 1.2em;
+  }
+  .accordion {
+    margin: 2em 0;
+  }
+  .meme__content {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 960px) {
+  html {
+    font-size: 1.3em;
+  }
+  .meme__content {
+    padding: 0 5rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
