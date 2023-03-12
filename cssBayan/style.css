@@ -24,13 +24,14 @@ h1 {
 }
 
 .meme img {
-  max-width: 80%;
   padding-top: 1rem;
+  max-width: 100%;
 }
 
 .accordion {
   padding: 0 0.5rem;
   background-color: var(--background);
+  max-width: 40rem;
 }
 
 .meme {
@@ -42,7 +43,7 @@ h1 {
 }
 
 .meme__label {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   display: flex;
   padding: 0 1rem;
@@ -56,11 +57,13 @@ h1 {
 
 .meme__label .state-icon {
   display: none;
+  line-height: 0%;
   font-size: 1.8rem;
   transition: transform 0.4s;
 }
 
 .meme__content {
+  padding: 0 1rem;
   display: flex;
   max-height: 0;
   transform: scale(0);
@@ -101,4 +104,32 @@ h1 {
 
 .meme:active {
   opacity: 0.8;
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 1.2em;
+  }
+  .meme__content {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 1.3em;
+  }
+  .meme__content {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1080px) {
+  html {
+    font-size: 1.5em;
+  }
+
+  .meme__content {
+    padding: 0 6rem;
+  }
 }
